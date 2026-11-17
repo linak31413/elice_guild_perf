@@ -15,7 +15,9 @@ pipeline {
         }
         stage('Smoke Test') {
             steps {
-                "%JMETER_HOME%\bin\jmeter.bat" -n -f -t perf/smoke.jmx -l reports/smoke.jtl
+                bat '''
+                    "%JMETER_HOME%\\bin\\jmeter.bat" -n -f -t perf/smoke.jmx -l reports/smoke.jtl
+                '''
             }
         }
     }
